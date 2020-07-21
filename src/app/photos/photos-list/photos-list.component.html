@@ -1,0 +1,27 @@
+<div class="text-center mt-3 mb-3">
+    <form>
+        <input
+            class="rounded"
+            type="search"
+            placeholder="search..."
+            autofocus
+            (keyup) = 'filterKeyUp = $event.target.value'            
+            >
+            <!-- KEYUP evento do JS que captura oq ue for digitado no teclado, assim que a tecla é solta -->
+            <!-- filterKeyUp é a nossa VAR em NOSSO photo-list, ela é abastecida , temo que por o EVENT-BINDING -->
+    </form>
+</div>
+<!-- {{filterKeyUp}} desta forma testamos nosso evento -->
+
+
+<app-photos [photos] = "photos | filterByDescrition : filterKeyUp"></app-photos>  
+<!-- Entra PHOTOS no PIPER vai para nosso METADO FILTERBYDESCRITION e depois vai para FILTERKEYUP -->
+<!-- Nosso PIPE recebe 2 paramentros 1º lista de PHOTOS e o 2º o critério é o FILTERKEYUP -->
+
+
+<!-- este é nosso (click)="load()" Unbinding acionado nosso metodo load() -->
+<app-load-button (click)="load()" 
+[hasMore]='hasMore'> <!-- esta dataBinding esta vinculada [hasMore]='hasMore' com a variavel hasMore deste component -->
+
+</app-load-button> 
+
